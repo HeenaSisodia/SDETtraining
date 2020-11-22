@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,6 +17,7 @@ public class Activity3 {
 	    public void beforeMethod() {
 	        //Create a new instance of the Firefox driver
 	        driver = new FirefoxDriver();
+	        Reporter.log("Activity3 Test Started");
 	        
 	        //Open browser
 	        driver.get("https://alchemy.hguy.co/lms");
@@ -31,7 +33,7 @@ public class Activity3 {
 	            
 	            //Assertion
 	        Assert.assertEquals("Actionable Training", text.getText());
-	                    
+	        Reporter.log("First info box text is: " + text.getText());    
 	        
 	    }
 
@@ -39,6 +41,7 @@ public class Activity3 {
 	    public void afterMethod() {
 	        //Close the browser
 	        driver.quit();
+	        Reporter.log("Activity3 Test Completed");
 	    }
 
 	

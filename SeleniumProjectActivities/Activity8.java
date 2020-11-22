@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -19,6 +20,7 @@ public class Activity8 {
 	    public void beforeMethod() {
 	        //Create a new instance of the Firefox driver
 	        driver = new FirefoxDriver();
+	        Reporter.log("Activity8 Test Started");
 	        
 	        //Open browser
 	        driver.get("https://alchemy.hguy.co/lms");
@@ -41,13 +43,14 @@ public class Activity8 {
 	    
 	    	//print message
 	    	System.out.println("Message after submit:" + driver.findElement(By.xpath("//body/div[@id='page']/div[@id='content']/div[1]/div[1]/main[1]/article[1]/div[1]/section[4]/div[2]/div[2]/div[2]/div[2]/p[1]")).getText());
-	    	
+	    	Reporter.log("Message after submit:" + driver.findElement(By.xpath("//body/div[@id='page']/div[@id='content']/div[1]/div[1]/main[1]/article[1]/div[1]/section[4]/div[2]/div[2]/div[2]/div[2]/p[1]")).getText());
 	    }
 
 	    @AfterMethod
 	    public void afterMethod() {
 	        //Close the browser
 	        driver.quit();
+	        Reporter.log("Activity8 Test Completed");
 	    }
 
 	
