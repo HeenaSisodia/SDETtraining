@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TestSuite" parallel="classes">
+ <listeners>
+        <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    </listeners>
+    <test name="Tests">
+        <classes>
+            <class name="seleniumProject.Activity1"/>
+            <class name="seleniumProject.Activity2"/>
+            <class name="seleniumProject.Activity3"/>
+            <class name="seleniumProject.Activity4"/>
+            <class name="seleniumProject.Activity5"/>
+            <class name="seleniumProject.Activity6"/>
+            <class name="seleniumProject.Activity7"/>
+            <class name="seleniumProject.Activity8"/>
+            <class name="seleniumProject.Activity9"/>
+       
+        </classes>
+    </test>
+</suite>
