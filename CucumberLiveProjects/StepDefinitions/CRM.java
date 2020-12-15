@@ -45,5 +45,73 @@ public class CRM {
         
        
     }
+    @Then("^Create leads using details$")
+    public void CreateLeads() {
+       
+    	driver.findElement(By.xpath("//body/div[@id='ajaxHeader']/nav[1]/div[1]/div[3]/ul[1]/li[1]/a[1]")).click();
+    	driver.findElement(By.xpath("//body/div[@id='ajaxHeader']/nav[1]/div[1]/div[3]/ul[1]/li[1]/ul[1]/li[4]/a[1]")).click();
+    	driver.findElement(By.xpath("//input[@id='last_name']")).sendKeys("Sharma");
+    	driver.findElement(By.xpath("//tbody/tr[1]/td[1]/div[1]/input[1]")).click();
+       
+    }
+    @And("^Verify Results$")
+    public void VerifyResults() {
+        driver.findElement(By.xpath("//body/div[@id='bootstrap-container']/div[@id='content']/div[@id='pagecontent']/div[1]/h2[1]")).isDisplayed();
+       
+    }
+    
+    @Then("^Schedule a meeting for members$")
+    public void ScheduleMeeting() {
+       
+    	driver.findElement(By.xpath("//body/div[@id='ajaxHeader']/nav[1]/div[1]/div[3]/ul[1]/li[1]/a[1]")).click();
+    	driver.findElement(By.xpath("//body/div[@id='ajaxHeader']/nav[1]/div[1]/div[1]/ul[1]/li[13]/a[1]")).click();
+    	driver.findElement(By.xpath("//body/div[@id='ajaxHeader']/nav[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]/span[1]")).click();
+    	driver.findElement(By.xpath("//body/div[@id='ajaxHeader']/nav[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/ul[1]/li[1]/a[1]")).click();
+    	driver.findElement(By.xpath("//input[@id='name']")).sendKeys("Test Meeting");
+    	
+       
+    }
+    
+    @And("^Search members \"(.*)\" \"(.*)\" and create meeting$")
+    public void SearchMembers(String fname, String lname) {
+       
+    	driver.findElement(By.xpath("//input[@id='search_first_name']")).sendKeys(fname);
+    	driver.findElement(By.xpath("//input[@id='search_last_name']")).sendKeys(lname);
+    	driver.findElement(By.xpath("//input[@id='invitees_search']")).click();
+    	driver.findElement(By.xpath("//input[@id='name']")).sendKeys("Test Meeting");
+    	
+       
+    }
+    @And("^Verify creation of meetings$")
+    public void VerifyMeeting() {
+    	
+    	driver.findElement(By.xpath("//body/div[@id='bootstrap-container']/div[@id='content']/form[@id='EditView']/div[4]/input[3]")).click();
+        driver.findElement(By.xpath("//body/div[@id='bootstrap-container']/div[@id='content']/div[@id='pagecontent']/div[1]/h2[1]")).isDisplayed();
+       
+    }
+    
+    @And("^Create Products with details \"(.*)\" \"(.*)\"$")
+    public void CreateProduct(String name, String price) {
+    	
+    	driver.findElement(By.xpath("//body/div[@id='ajaxHeader']/nav[1]/div[1]/div[1]/button[1]/span[2]")).click();
+    	driver.findElement(By.xpath("//body/div[@id='ajaxHeader']/nav[1]/div[1]/div[1]/ul[1]/li[25]/a[1]")).click();
+    	driver.findElement(By.xpath("//input[@id='name']")).sendKeys(name);
+    	driver.findElement(By.xpath("//input[@id='price']")).sendKeys(price);
+    	driver.findElement(By.xpath("//body/div[@id='bootstrap-container']/div[@id='content']/div[@id='pagecontent']/form[@id='EditView']/div[2]/input[1]")).click();
+    	
+    	
+       
+    }
+    @Then("^Verify Products$")
+    public void VerifyProduct() {
+    	
+        driver.findElement(By.xpath("//body/div[@id='bootstrap-container']/div[@id='content']/div[@id='pagecontent']/div[1]/h2[1]")).isDisplayed();
+       
+    }
+    @And("^Close the Browser$")
+    public void closeBrowser() {
+        //Close browser
+        driver.close();
+    }
 
 }
